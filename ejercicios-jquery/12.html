@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>12 JQuery</title>
+  <style>
+  #panel, #flip {
+      padding: 5px;
+      text-align: center;
+      background-color: #e5eecc;
+      border: solid 1px #c3c3c3;
+  }
+
+  #panel {
+      padding: 50px;
+      display: none;
+  }
+  </style>
+</head>
+<body>
+  <h2>Efectos</h2>
+  <p>slideToggle().</p>
+
+  <div id="flip">Haz click para mostrar el #id panel</div>
+  <div id="panel">Hola Mundo</div>
+  <br />
+  <button class="reset">Restablecer</button>
+  <script src="js/jquery.js"></script>
+  <script>
+    $(document).ready(function(){
+      $("#flip").click(function(){
+          $("#flip").html("Haz click para ocultar el #id panel");
+          $("#panel").slideToggle("slow");
+      });
+      $(".reset").click(function(){
+        location.reload();
+      });
+    });
+  </script>
+</body>
+</html>

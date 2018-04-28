@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>03 JQuery</title>
+</head>
+<body>
+  <h2>Efectos show y hide</h2>
+  <p>Efectos show y hide mediante botón.</p>
+
+  <button id="hide">Hide</button>
+  <button id="show">Show</button>
+  <script src="js/jquery.js"></script>
+  <script>
+    $(document).ready(function(){
+      $("#hide").click(function(){
+          $("p").hide();
+      });
+      $("#show").click(function(){
+          $("p").show();
+      });
+
+    });
+  </script>
+</body>
+</html>

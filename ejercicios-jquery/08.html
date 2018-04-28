@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>08 JQuery</title>
+</head>
+<body>
+  <h2>Efectos</h2>
+  <p>fadeToggle() con diferentes parametros.</p>
+
+  <div id="div1" style="width:80px;height:80px;background-color:red;"></div><br>
+  <div id="div2" style="width:80px;height:80px;background-color:green;"></div><br>
+  <div id="div3" style="width:80px;height:80px;background-color:blue;"></div>
+
+  <button>Fade en divs</button>
+  <button class="reset">Restablecer</button>
+  <script src="js/jquery.js"></script>
+  <script>
+    $(document).ready(function(){
+      $("button").click(function(){
+        $("#div1").fadeToggle();
+        $("#div2").fadeToggle("slow");
+        $("#div3").fadeToggle(3000);
+      });
+      $(".reset").click(function(){
+        location.reload();
+      });
+    });
+  </script>
+</body>
+</html>

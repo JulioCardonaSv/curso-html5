@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>09 JQuery</title>
+</head>
+<body>
+  <h2>Efectos</h2>
+  <p>fadeTo() con diferentes parametros.</p>
+
+  <div id="div1" style="width:80px;height:80px;background-color:red;"></div><br>
+  <div id="div2" style="width:80px;height:80px;background-color:green;"></div><br>
+  <div id="div3" style="width:80px;height:80px;background-color:blue;"></div>
+
+  <button>Fade en divs</button>
+  <button class="reset">Restablecer</button>
+  <script src="js/jquery.js"></script>
+  <script>
+    $(document).ready(function(){
+      $("button").click(function(){
+        $("#div1").fadeTo("slow", 0.15);
+        $("#div2").fadeTo("slow", 0.4);
+        $("#div3").fadeTo("slow", 0.7);
+      });
+      $(".reset").click(function(){
+        location.reload();
+      });
+    });
+  </script>
+</body>
+</html>

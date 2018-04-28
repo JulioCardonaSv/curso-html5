@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>01 JQuery</title>
+</head>
+<body>
+  <pre>
+    <div id="test">ID a ocultar</div>
+  </pre>
+  <div id="test">ID a ocultar</div>
+  <pre>
+    <div class="test">Clase a ocultar</div>
+  </pre>
+  <div class="test">Clase a ocultar</div>
+  <pre>
+    <p>Parrafo a ocultar</p>
+  </pre>
+  <p>Parrafo a ocultar</p>
+  <button class="btn1">Ocultar ID</button>
+  <button class="btn2">Ocultar clase</button>
+  <button class="btn3">Ocultar parrafo</button>
+  <button class="btn4">Restablecer</button>
+  <script src="js/jquery.js"></script>
+  <script>
+    $(document).ready(function(){
+      //Comentario linea
+      /**
+      Comentario de bloque
+      **/
+      //Boton con evento click para esconder un objeto
+      $(".btn1").click(function(){
+          $("#test").hide();
+      });
+      $(".btn2").click(function(){
+          $(".test").hide();
+      });
+      $(".btn3").click(function(){
+          $("p").hide();
+      });
+      $(".btn4").click(function(){
+          location.reload();
+      });
+
+    });
+  </script>
+</body>
+</html>

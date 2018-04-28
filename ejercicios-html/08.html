@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Ejemplo webstorage</title>
+</head>
+<body>
+  <div id="result"></div>
+  <button onclick="destruir()">Borrar</button>
+  <button onclick="crear()">Crear dummy data</button>
+  <script>
+  // Check browser support
+
+
+  function crear(){
+    if (typeof(Storage) !== "undefined") {
+        // Store
+        localStorage.setItem("apellido", "Doe");
+        localStorage.setItem("nombre", "Jhon");
+        // Retrieve
+        var htmloutput = "Esta es la salida de local storage:";
+        htmloutput += "<br />";
+        htmloutput += "Nombre: " + localStorage.getItem("nombre");
+        htmloutput += "Apellido: " + localStorage.getItem("apellido");
+        document.getElementById("result").innerHTML = htmloutput;
+    } else {
+        document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
+    }
+  }
+
+  function destruir(){
+    localStorage.removeItem("apellido");
+    localStorage.removeItem("nombre");
+    document.getElementById("result").innerHTML = "VACIO";
+  }
+
+  </script>
+</body>
+</html>

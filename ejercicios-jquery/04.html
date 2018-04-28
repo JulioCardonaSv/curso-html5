@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>04 JQuery</title>
+</head>
+<body>
+  <h2>Efectos</h2>
+  <p>Efectos hide mediante botón.</p>
+
+  <button>Ocultar</button>
+  <script src="js/jquery.js"></script>
+  <script>
+    $(document).ready(function(){
+      $("button").click(function(){
+          $("p").hide(1000);
+      });
+
+    });
+  </script>
+</body>
+</html>

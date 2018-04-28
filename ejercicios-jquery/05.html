@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>05 JQuery</title>
+</head>
+<body>
+  <h2>Efectos</h2>
+  <p>Efectos show and hide mediante botón evento toggle.</p>
+
+  <button>Ocultar/Mostrar</button>
+  <script src="js/jquery.js"></script>
+  <script>
+    $(document).ready(function(){
+      $("button").click(function(){
+          $("p").toggle();
+      });
+
+    });
+  </script>
+</body>
+</html>

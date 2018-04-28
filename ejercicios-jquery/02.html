@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>02 JQuery</title>
+</head>
+<body>
+  <h2>Eventos sobre parrafos</h2>
+  <pre>
+    <p>Desaparecer con un click.</p>
+  </pre>
+  <p>Desaparecer con un click.</p>
+  <pre>
+    <p>Desaparecer con doble click.</p>
+  </pre>
+  <p class="doble">Desaparecer con doble click.</p>
+  <pre>
+    <p>Mover el puntero del mouse aquí.</p>
+  </pre>
+  <p id="m1">Mover el puntero del mouse aquí.</p>
+  <br />
+  <h2>Evento focus</h2>
+  Nombre: <input type="text" name="nombre"><br />
+  E-Mail: <input type="text" name="email">
+  <hr>
+  <button>Restablecer</button>
+  <script src="js/jquery.js"></script>
+  <script>
+    $(document).ready(function(){
+      //Comentario linea
+      /**
+      Comentario de bloque
+      **/
+      //Esconder el parrafo donde se posiciono el cursor usando un evento click
+      $("p").click(function(){
+          $(this).hide();
+      });
+      $(".doble").dblclick(function(){
+          $(this).hide();
+      });
+      $("#m1").mouseenter(function(){
+          alert("Entraste a m1!");
+      });
+      $("#m1").mouseleave(function(){
+          alert("Adios de #m1!");
+      });
+      $("#m1").mousedown(function(){
+          alert("Mouse down sobre m1");
+      });
+      $("#m1").mouseup(function(){
+          alert("Mouse up sobre m1");
+      });
+      //Evento hover
+      $("#m1").hover(function(){
+          alert("Entraste a m1");
+      },
+      function(){
+          alert("Adios m1!");
+      });
+      //Evento focus
+      $("input").focus(function(){
+          $(this).css("background-color", "#FF0000");
+      });
+      $("input").blur(function(){
+          $(this).css("background-color", "#FFCC00");
+      });
+      //Evento ON, añade uno o más eventos a los manejadores
+      $("p").on("click", function(){
+          $(this).hide();
+      });       
+      //Botón para restabler
+      $("button").click(function(){
+          location.reload();
+      });
+    });
+  </script>
+</body>
+</html>
