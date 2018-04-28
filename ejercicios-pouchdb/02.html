@@ -2,10 +2,12 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>01 PouchDB</title>
+  <title>02 PouchDB</title>
 </head>
 <body>
   <button class="insert">Insert registro</button>
+  <button class="get">Get registro</button>
+  <button class="delete">Delete registro</button>
   <script src="js/jquery.js"></script>
   <script src="js/pouchdb-6.4.3.min.js"></script>
   <script>
@@ -13,23 +15,34 @@
       //Crear una base de datos
       var db = new PouchDB('mi_basedatos');
       var remoteCouch = false;//Configuración para base de datos producción
-      //Insert
-      function addTodo(titulo,texto) {
-        var todo = {
-          titulo: titulo,
-          texto: texto
-        };
-        db.put(todo, function callback(err, result) {
-          if (!err) {
-            console.log('Ok!');
-          }
-        });
-      }
-      //Botones
+      //Botones //Insert
       $(".insert").click(function(){
-        var titulo = "Hola Mundo";
-        var texto = "Lorem Ipsum";
-        addTodo(titulo, texto);
+        db.put({
+          _id: 'mydoc',
+          title: 'Heroes'
+        }).then(function (response) {
+          // handle response
+        }).catch(function (err) {
+          console.log(err);
+        });
+      });
+      //Get
+      $(".get").click(function(){
+        db.get('mydoc').then(function (doc) {
+          console.log(doc);
+        }).catch(function (err) {
+          console.log(err);
+        });
+      });
+      //Borrar
+      $(".delete").click(function(){
+        db.get('mydoc').then(function(doc) {
+          return db.remove(doc);
+        }).then(function (result) {
+          console.log(result);
+        }).catch(function (err) {
+          console.log(err);
+        });
       });
     });
   </script>
