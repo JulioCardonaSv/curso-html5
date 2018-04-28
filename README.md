@@ -1,4 +1,6 @@
-# Curso HTML 5
-Archivos del curso HTML 5
-# Sobre el instructor
-ralf(http://www.rodrigoalfaropinto.com)
+# Curso HTML 5 - CSS - JQuery
+Archivos del curso, presentaciones y ejemplos
+
+### Autor ###
+
+* [ralf](http://rodrigoalfaropinto.com)
