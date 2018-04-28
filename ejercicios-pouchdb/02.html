@@ -18,17 +18,21 @@
       //Botones //Insert
       $(".insert").click(function(){
         db.put({
-          _id: 'mydoc',
-          title: 'Heroes'
+          _id: new Date().toISOString(),
+          nombre: 'Rodrigo',
+          apellido: 'Alfaro',
+          correo:'ralf@netstream.cl',
+          ocupacion: 'Desarrollador',
+          otros:[{"direccion":"santiago","pais":"Chile"}]
         }).then(function (response) {
-          // handle response
+          console.log(response);
         }).catch(function (err) {
           console.log(err);
         });
       });
       //Get
       $(".get").click(function(){
-        db.get('mydoc').then(function (doc) {
+        db.allDocs().then(function (doc) {
           console.log(doc);
         }).catch(function (err) {
           console.log(err);
@@ -36,7 +40,7 @@
       });
       //Borrar
       $(".delete").click(function(){
-        db.get('mydoc').then(function(doc) {
+        db.get('1').then(function(doc) {
           return db.remove(doc);
         }).then(function (result) {
           console.log(result);
