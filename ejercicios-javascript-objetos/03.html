@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>02</title>
+  </head>
+  <body>
+    <p>
+      Si accede a un método de objeto sin (), devolverá la definición de la función
+    </p>
+    <p id="objeto"></p>
+    <script type="text/javascript">
+    //Objeto complejo
+    var persona = {
+      firstName: "John",
+      lastName : "Doe",
+      id       : 5566,
+      fullName : function() {
+         return this.firstName + " " + this.lastName;
+      }
+    };
+    //document.getElementById("objeto").innerHTML = persona.fullName();
+    document.getElementById("objeto").innerHTML = persona.fullName;
+    </script>
+  </body>
+</html>

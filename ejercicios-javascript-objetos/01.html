@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>01</title>
+  </head>
+  <body>
+    <p id="familia"></p>
+    <script type="text/javascript">
+    // Constructor
+    function Persona(first, last, age, eye) {
+        this.firstName = first;
+        this.lastName = last;
+        this.age = age;
+        this.eyeColor = eye;
+    }
+
+    // Create two Person objects
+    var viejo = new Persona("John", "Doe", 50, "blue");
+    var vieja = new Persona("Sally", "Rally", 48, "green");
+
+    // Display age
+    document.getElementById("familia").innerHTML =
+    "Mí padre tiene : " + viejo.age + " años y mí madre: " + vieja.age + " años";
+    </script>
+  </body>
+</html>
