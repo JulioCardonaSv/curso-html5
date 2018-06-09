@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>01 PouchDB</title>
+</head>
+<body>
+  <button class="insert">Insert registro</button>
+  <button class="get">Get registro</button>
+  <button class="delete">Delete registro</button>
+  <pre id="mostrar"></pre>
+  <form>
+    <table>
+      <tr>
+        <td>Nombre</td>
+        <td>
+          <input type="text" placeholder="Coloca el nombre" name="nombre">
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <center>
+            <button type="button" name="enviar">Enviar datos</button>
+          </center>
+        </td>
+      </tr>
+    </table>
+  </form>
+  <div id="errores"></div>
+  <!-- scripts -->
+  <script src="js/jquery.js"></script>
+  <script src="js/pouchdb-6.4.3.min.js"></script>
+  <script>
+    $(document).ready(function(){
+      var db = new PouchDB('nueva');//Crear una base de datos
+      var remoteCouch = false;//Configuración para base de datos producción
+      //Insert
+      $(".insert").click(function(){
+        db.put({
+          _id: new Date().toISOString(),//Fecha como ID
+          nombre: 'Rodrigo',
+          apellido: 'Alfaro',
+          correo:'ralf@netstream.cl',
+          ocupacion: 'Consultor',
+          otros:[{"ciudad":"Santiago","pais":"Chile"}]
+        }).then(function (response) {
+          console.log(response);
+        }).catch(function (err) {
+          console.log(err);
+        });
+      });
+      //Get - Obtener datos
+      $(".get").click(function(){
+        db.allDocs().then(function (doc) {
+          console.log(doc);
+          $("#mostrar").html(doc.total_rows + "<br />");
+          $.each(doc.rows, function( index, value ) {
+            $("#mostrar").append(value.id + "<br />");
+          });
+        }).catch(function (err) {
+          console.log(err);
+        });
+      });
+      //Borrar datos
+      $(".delete").click(function(){
+        db.get('2018-06-09T20:47:24.573Z').then(function(doc) {
+          return db.remove(doc);
+        }).then(function (result) {
+          console.log(result);
+        }).catch(function (err) {
+          console.log(err);
+        });
+      });
+      //
+      $("button[name=enviar]").click(function(){
+        $.post('http://192.168.71.129/curso-html5/servicio.php',{nombre:$("input[name=nombre]").val(),estado:0},function(data){
+          console.log(data);
+          if(data.err != 0){
+            $("#errores").html(data.msg);
+          }else{
+            $("#errores").html(data.msg);
+            //Almacenamos en DDBB
+            db.put({
+              _id: new Date().toISOString(),//Fecha como ID
+              nombre: data.nombre,
+              correo: data.email,
+              fono:data.fono
+            }).then(function (response) {
+              console.log(response);
+            }).catch(function (err) {
+              console.log(err);
+            });
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
+<!-- https://pastebin.com/7697t2VN -->
+<!-- 192.168.50.161 -->
