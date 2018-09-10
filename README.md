@@ -1,6 +1,6 @@
 # Curso HTML 5 - CSS - JQuery
 Archivos del curso, presentaciones y ejemplos
 
-### Autor ###
+# Relator
+ralf, http://ralfzombie.wordpress.com
 
-* [ralf](http://rodrigoalfaropinto.com)
